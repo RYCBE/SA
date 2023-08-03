@@ -1,0 +1,9 @@
+category,name,price,image
+electricalEquipment,iron,1,/assets/images/items/1.jpg
+electricalEquipment,blender,2,/assets/images/items/2.jpg
+ShoesClothingBags,Women's Bags,10,/assets/images/items/3.jpg
+electronicProduct,iPhone,20,/assets/images/items/4.jpg
+furniture,Double sofa,40,/assets/images/items/5.jpg
+furniture,Single sofa,60,/assets/images/items/6.jpg
+electronicProduct,iWatch,100,/assets/images/items/7.jpg
+electronicProduct,iMac,700,/assets/images/items/8.jpg

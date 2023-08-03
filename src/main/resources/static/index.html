@@ -1,0 +1,411 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Bootstrap-ecommerce by Vosidiy">
+    <title>Squanchy POS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/logos/squanchy.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logos/squanchy.jpg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logos/squanchy.jpg">
+    <!-- jQuery -->
+    <!-- Bootstrap4 files-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/ui.css" rel="stylesheet" type="text/css" />
+    <link href="assets/fonts/fontawesome/css/fontawesome-all.min.css" type="text/css" rel="stylesheet">
+    <link href="assets/css/OverlayScrollbars.css" type="text/css" rel="stylesheet" />
+    <!-- Font awesome 5 -->
+    <style>
+        .avatar {
+            vertical-align: middle;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+        }
+
+        .bg-default,
+        .btn-default {
+            background-color: #f2f3f8;
+        }
+
+        .btn-error {
+            color: #ef5f5f;
+        }
+    </style>
+    <!-- custom style -->
+</head>
+
+<body>
+    <section class="header-main">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3">
+                    <div class="brand-wrap">
+                        <img class="logo" src="assets/images/logos/squanchy.jpg">
+                        <h2 class="logo-text">Squanchy POS</h2>
+                    </div> <!-- brand-wrap.// -->
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <form action="#" class="search-wrap">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form> <!-- search-wrap .end// -->
+                </div> <!-- col.// -->
+                <div class="col-lg-3 col-sm-6">
+                    <div class="widgets-wrap d-flex justify-content-end">
+                        <div class="widget-header">
+                            <a href="#" class="icontext">
+                                <a href="#" class="btn btn-primary m-btn m-btn--icon m-btn--icon-only">
+                                    <i class="fa fa-home"></i>
+                                </a>
+                            </a>
+                        </div> <!-- widget .// -->
+                        <div class="widget-header dropdown">
+                            <a href="#" class="ml-3 icontext" data-toggle="dropdown" data-offset="20,10">
+                                <img src="assets/images/avatars/bshbsh.png" class="avatar" alt="">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#"><i class="fa fa-sign-out-alt"></i> Logout</a>
+                            </div> <!--  dropdown-menu .// -->
+                        </div> <!-- widget  dropdown.// -->
+                    </div> <!-- widgets-wrap.// -->
+                </div> <!-- col.// -->
+            </div> <!-- row.// -->
+        </div> <!-- container.// -->
+    </section>
+    <!-- ========================= SECTION CONTENT ========================= -->
+    <section class="section-content padding-y-sm bg-default ">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8 card padding-y-sm card ">
+                    <ul class="nav bg radius nav-pills nav-fill mb-3 bg" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active show" data-toggle="pill" href="#nav-tab-card">
+                                <i class="fa fa-tags"></i> 全部</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#nav-tab-paypal">
+                                <i class="fa fa-tags "></i> 家用电器</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#nav-tab-bank">
+                                <i class="fa fa-tags "></i> 电子产品</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#nav-tab-bank">
+                                <i class="fa fa-tags "></i> 鞋服包包</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#nav-tab-bank">
+                                <i class="fa fa-tags "></i> 家具类</a></li>
+                        </li>
+                    </ul>
+                    <span id="items">
+                        <div id="itemrow" class="row">
+
+                        </div>
+                    </span>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <span id="cart">
+                            <table class="table table-hover shopping-cart-wrap">
+                                <thead class="text-muted">
+                                    <tr>
+                                        <th scope="col">Item</th>
+                                        <th scope="col" width="120">Qty</th>
+                                        <th scope="col" width="120">Price</th>
+                                        <th scope="col" class="text-right" width="200">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="itemCart">
+
+                                </tbody>
+                            </table>
+                        </span>
+                    </div> <!-- card.// -->
+                    <div class="box">
+                        <dl class="dlist-align">
+                            <dt>Tax: </dt>
+                            <dd class="text-right" id="taxRate"></dd>
+                        </dl>
+                        <dl class="dlist-align">
+                            <dt>Discount:</dt>
+                            <dd class="text-right"><a href="#">0%</a></dd>
+                        </dl>
+                        <dl class="dlist-align">
+                            <dt>Sub Total:</dt>
+                            <dd class="text-right" id="sub-total"></dd>
+                        </dl>
+                        <dl class="dlist-align">
+                            <dt>Total: </dt>
+                            <dd class="text-right h4 b" id="total"></dd>
+                        </dl>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="#" class="btn  btn-default btn-error btn-lg btn-block btn-cancel"><i
+                                        class="fa fa-times-circle "></i> Cancel </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="#" class="btn  btn-primary btn-lg btn-block btn-charge"><i class="fa fa-shopping-bag"></i>
+                                    Charge </a>
+                            </div>
+                        </div>
+                    </div> <!-- box.// -->
+                </div>
+            </div>
+        </div><!-- container //  -->
+    </section>
+    <!-- ========================= SECTION CONTENT END// ========================= -->
+    <script src="assets/js/jquery-2.0.0.min.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="assets/js/OverlayScrollbars.js" type="text/javascript"></script>
+    <script>
+        let taxRate;
+
+        $(function () {
+            //The passed argument has to be at least a empty object or a object with your desired options
+            $("body").overlayScrollbars({ });
+            $("#items").height(552);
+            $("#items").overlayScrollbars({
+                overflowBehavior: {
+                    x: "hidden",
+                    y: "scroll"
+                }
+            });
+            $("#cart").height(445);
+            $("#cart").overlayScrollbars({});
+        });
+        $(document).on('click','.btn-cancel',function (e) {
+            $("#itemCart").empty();
+            localStorage.clear();
+        })
+        $(document).on('click','.btn-charge',function (e) {
+            $("#itemCart").empty();
+            localStorage.clear();
+            alert("You have successfully checked out!");
+        })
+
+        const reloadCart = ()=>{
+            let htmlData = ""
+            let oldCart = localStorage.getItem("itemCart")
+            oldCart = JSON.parse(oldCart)
+            console.log(oldCart)
+            let items = oldCart["items"]
+
+            let subTotal = 0
+
+            for (let i = 0; i < items.length; i++) {
+                subTotal += items[i].price*items[i].quantity
+                htmlData += Item(items[i])
+            }
+            let total = (1+taxRate)*subTotal
+            $("#itemCart").html(htmlData)
+
+            $("#sub-total").html(subTotal.toFixed(2))
+            $("#total").html(total.toFixed(2))
+        }
+
+        const minusLambda = (th,qua)=>{
+            const url = "products/"+$(th).attr("pid");
+            $.getJSON(url, function (data) {
+                if(window.localStorage){
+                    //获取字典，id对应数量和价格
+                    let oldCart;
+                    let oldCartText = localStorage.getItem("itemCart");
+                    oldCart = JSON.parse(oldCartText)
+                    let id = data["id"]
+                    let items = oldCart["items"]
+                    let flag = false
+                    for (let i = 0; i < items.length; i++) {
+                        if (items[i].id == id) {
+                            items[i].quantity -= qua
+                            if(items[i].quantity<=0){
+                                items.splice(i,1)
+                            }
+                            flag = true
+                            break
+                        }
+                    }
+                    if(flag){
+                        oldCart["items"] = items
+                    }
+
+                    oldCart = JSON.stringify(oldCart)
+                    localStorage.setItem("itemCart",oldCart)
+                    console.log("set in if" + oldCart)
+                    console.log(oldCart)
+
+                    reloadCart()
+
+
+                }else{
+                    alert("NOT support localStorage!");
+                }
+            })
+        }
+
+
+        const addLambda = (th)=>{
+            const url = "products/"+$(th).attr("pid");
+            $.getJSON(url, function (data) {
+                console.log(data)
+                // 本地持久化工作
+                if(window.localStorage){
+                    //获取字典，id对应数量和价格
+                    let oldCart;
+                    let oldCartText = localStorage.getItem("itemCart");
+                    if(oldCartText){
+                        oldCart = JSON.parse(oldCartText)
+                        let id = data["id"]
+                        let items = oldCart["items"]
+                        let flag = false
+                        for (let i = 0; i < items.length; i++) {
+                            if (items[i].id == id) {
+                                items[i].quantity += 1
+                                flag = true
+                                break
+                            }
+                        }
+                        if(flag){
+                            oldCart["items"] = items
+                        }
+                        else{
+                            data["quantity"] = 1
+                            oldCart["items"].push(data)
+                        }
+
+                        oldCart = JSON.stringify(oldCart)
+                        localStorage.setItem("itemCart",oldCart)
+                        console.log("set in if" + oldCart)
+                        console.log(oldCart)
+                    }
+                    else{
+                        oldCart = JSON.parse("{\"items\":[]}")
+                        data["quantity"] = 1
+                        oldCart["items"].push(data)
+
+                        oldCart = JSON.stringify(oldCart)
+                        localStorage.setItem("itemCart",oldCart)
+                        console.log("set in else" + oldCart)
+                        console.log(oldCart)
+
+                    }
+
+                    reloadCart()
+
+
+                }else{
+                    alert("NOT support localStorage!");
+                }
+            });
+        }
+
+        $(document).on('click','.btn-sm',function (e) {
+            addLambda(this)
+        })
+        $(document).on('click','.btn-minus',function (e) {
+            minusLambda(this,1)
+        })
+        $(document).on('click','.btn-trash',function (e) {
+            let qua = $(this).attr("qua");
+            console.log(qua)
+            minusLambda(this,qua)
+        })
+
+
+        const Item = ({id,image,name,price,quantity}) => `
+        <tr>
+            <td>
+                <figure class="media">
+                    <div class="img-wrap"><img src="${image}"
+                            class="img-thumbnail img-xs"></div>
+                    <figcaption class="media-body">
+                        <h6 class="title text-truncate">${name} </h6>
+                    </figcaption>
+                </figure>
+            </td>
+            <td class="text-center">
+                <div class="m-btn-group m-btn-group--pill btn-group mr-2" role="group"
+                    aria-label="...">
+                    <button type="button" class="m-btn btn btn-default btn-minus" pid="${id}"><i
+                            class="fa fa-minus"></i></button>
+                    <button type="button" class="m-btn btn btn-default" disabled>${quantity}</button>
+                    <button type="button" class="m-btn btn btn-default btn-sm" pid="${id}"><i
+                            class="fa fa-plus"></i></button>
+                </div>
+            </td>
+            <td>
+                <div class="price-wrap">
+                    <var class="price">$${price}</var>
+                </div> <!-- price-wrap .// -->
+            </td>
+            <td class="text-right">
+                <a class="btn btn-outline-danger btn-round btn-trash" pid="${id}" qua="${quantity}"> <i
+                        class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+        `;
+
+
+        $(document).ready(function () {
+            $.getJSON("products", function (data) {
+                const products = data._embedded.productList;
+
+                console.log(data._embedded.productList.length)
+
+                for (var i = 0; i < products.length; i++) {
+                    $("#itemrow").append(Product(products[i]));
+                }
+
+            });
+            $.getJSON("tax",function (data) {
+                console.log(data);
+                taxRate = data
+                $("#taxRate").html(taxRate*100+'%');
+            })
+
+            //本地购物车加载
+
+            const localCart = localStorage.getItem("itemCart")
+            if(localCart){
+                console.log("ready"+ localCart)
+
+                reloadCart()
+            }
+            else{
+                console.log("empty cart")
+            }
+        });
+
+
+        const Product = ({image, name, price,id }) => `
+        <div class="col-md-3">
+            <figure class="card card-product">
+                <span class="badge-new"> NEW </span>
+                <div class="img-wrap">
+                    <img src="${image}">
+                    <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
+                </div>
+                <figcaption class="info-wrap">
+                    <a href="#" class="title">${name}</a>
+                    <div class="action-wrap">
+                        <a href="#" class="btn btn-primary btn-sm float-right" pid="${id}"> <i
+                                class="fa fa-cart-plus"></i> Add </a>
+                        <div class="price-wrap h5">
+                            <span class="price-new">$${price}</span>
+                        </div> <!-- price-wrap.// -->
+                    </div> <!-- action-wrap -->
+                </figcaption>
+            </figure> <!-- card // -->
+        </div> <!-- col // -->
+        `;
+    </script>
+
+
+</body>
+
+</html>
